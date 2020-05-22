@@ -1,2 +1,7 @@
 rootProject.name='Deezer test'
+
 include ':app'
+include ':interfaces'
+include ':design'
+
+include ':features:albumlist'
