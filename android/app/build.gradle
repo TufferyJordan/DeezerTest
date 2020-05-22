@@ -46,10 +46,8 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
-
     implementation project(":interfaces")
+    implementation project(":apirest")
     implementation project(":design")
     implementation project(":features:albumlist")
 
