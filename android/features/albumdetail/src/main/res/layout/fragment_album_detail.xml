@@ -80,7 +80,7 @@
         android:id="@+id/albumDetailHeaderGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="albumDetailAlbumCoverImage,albumDetailAlbumDetailsText, albumDetailAlbumNameText, albumDetailArtistImage, albumDetailArtistNameText, albumDetailAlbumExplicitIcon"/>
+        app:constraint_referenced_ids="albumDetailAlbumCoverImage,albumDetailAlbumDetailsText, albumDetailAlbumNameText, albumDetailArtistImage, albumDetailArtistNameText"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/albumDetailErrorText"

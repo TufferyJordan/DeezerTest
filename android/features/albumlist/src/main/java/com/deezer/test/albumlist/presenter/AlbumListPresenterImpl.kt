@@ -20,4 +20,8 @@ class AlbumListPresenterImpl(
     override fun presentError(exception: AlbumListException) {
         view.displayError(exception.message ?: "")
     }
+
+    override fun presentLoading() {
+        view.displayLoading()
+    }
 }

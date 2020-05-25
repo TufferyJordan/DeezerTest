@@ -62,6 +62,7 @@ dependencies {
     implementation project(":design")
     implementation project(":features:albumlist")
     implementation project(":features:albumdetail")
+    implementation project(":features:github")
 
     testImplementation "junit:junit:$junit_version"
     testImplementation "io.mockk:mockk:$mockk_version"

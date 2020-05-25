@@ -28,4 +28,11 @@
         android:name="com.deezer.test.albumdetail.view.AlbumDetailFragment"
         android:label="Album Detail"
         tools:layout="@layout/fragment_album_detail" />
+
+    <fragment
+        android:id="@+id/githubFragment"
+        android:name="com.deezer.test.github.GithubFragment"
+        android:label="Project Page"
+        tools:layout="@layout/fragment_github" />
+
 </navigation>
