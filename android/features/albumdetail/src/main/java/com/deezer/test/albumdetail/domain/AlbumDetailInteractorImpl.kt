@@ -1,6 +1,5 @@
 package com.deezer.test.albumdetail.domain
 
-import android.util.Log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -17,7 +16,6 @@ class AlbumDetailInteractorImpl(
     override fun load(albumId: Int) {
         ioScope.launch {
             val data = repository.getAlbumDetail(albumId)
-            Log.e("data",data.toString())
             viewScope.launch {
                 presenter.presentAlbumDetail(
                     AlbumDetailDto(
