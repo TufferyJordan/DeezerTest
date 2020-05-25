@@ -18,8 +18,14 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(activityMainToolbar)
         val navController = findNavController(R.id.activityMainNavHostFragment)
-        val appBarConfiguration = AppBarConfiguration(navController.graph)
+
+        val appBarConfiguration = AppBarConfiguration.Builder(setOf(
+                R.id.albumListFragment,
+                R.id.githubFragment
+        )).build()
+
         activityMainToolbar.setupWithNavController(navController, appBarConfiguration)
+        activityMainBottomNavigationView.setupWithNavController(navController)
 
         navigationBroadcastReceiver = NavigationBroadcastReceiver(navController, this)
     }

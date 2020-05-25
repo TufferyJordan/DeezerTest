@@ -14,6 +14,7 @@ class AlbumListInteractorImpl(
     private val ioScope = CoroutineScope(Dispatchers.IO + Job())
 
     override fun load() {
+        presenter.presentLoading()
         ioScope.launch {
             val data = repository.getAlbumList()
             viewScope.launch {

@@ -3,6 +3,7 @@ package com.deezer.test.albumlist.domain
 interface AlbumListPresenter {
     fun presentAlbumList(dto: AlbumListDto)
     fun presentError(exception: AlbumListException)
+    fun presentLoading()
 }
 
 data class AlbumListViewModel(
