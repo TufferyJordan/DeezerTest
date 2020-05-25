@@ -10,7 +10,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.deezer.test.albumlist.AlbumListDependencies
 import com.deezer.test.albumlist.R
 import com.deezer.test.albumlist.domain.AlbumListInteractor
-import com.deezer.test.albumlist.presenter.AlbumListViewModel
+import com.deezer.test.albumlist.presenter.AlbumListView
+import com.deezer.test.albumlist.domain.AlbumListViewModel
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import kotlinx.android.synthetic.main.fragment_album_list.*
@@ -52,8 +53,16 @@ class AlbumListFragment : Fragment(),
     }
 
     override fun displayAlbumList(viewModel: AlbumListViewModel) {
+        albumListFragmentRecyclerView.visibility = View.VISIBLE
+        albumListFragmentErrorText.visibility = View.GONE
         groupAdapter.clear()
         val items = viewModel.list.map { AlbumItem(it, get()) }
         groupAdapter.addAll(items)
+    }
+
+    override fun displayError(error: String) {
+        albumListFragmentRecyclerView.visibility = View.GONE
+        albumListFragmentErrorText.visibility = View.VISIBLE
+        albumListFragmentErrorText.text = error
     }
 }

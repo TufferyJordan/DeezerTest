@@ -1,7 +1,5 @@
 package com.deezer.test.albumlist.domain
 
-import com.deezer.test.albumlist.presenter.AlbumListPresenter
-import com.deezer.test.albumlist.repository.AlbumListRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -19,17 +17,21 @@ class AlbumListInteractorImpl(
         ioScope.launch {
             val data = repository.getAlbumList()
             viewScope.launch {
-                presenter.presentAlbumList(
-                    AlbumListDto(
-                        data.list.map {
-                            AlbumDto(
-                                it.id,
-                                it.title,
-                                it.cover
-                            )
-                        }
+                data?.let {
+                    presenter.presentAlbumList(
+                        AlbumListDto(
+                            data.list.map {
+                                AlbumDto(
+                                    it.id,
+                                    it.title,
+                                    it.cover
+                                )
+                            }
+                        )
                     )
-                )
+                } ?: run {
+                    presenter.presentError(AlbumListException())
+                }
             }
         }
     }

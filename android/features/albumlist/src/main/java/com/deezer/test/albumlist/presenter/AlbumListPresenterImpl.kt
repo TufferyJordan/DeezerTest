@@ -1,7 +1,6 @@
 package com.deezer.test.albumlist.presenter
 
-import com.deezer.test.albumlist.view.AlbumListView
-import com.deezer.test.albumlist.domain.AlbumListDto
+import com.deezer.test.albumlist.domain.*
 
 class AlbumListPresenterImpl(
     private val view: AlbumListView
@@ -16,5 +15,9 @@ class AlbumListPresenterImpl(
                 )
             })
         )
+    }
+
+    override fun presentError(exception: AlbumListException) {
+        view.displayError(exception.message ?: "")
     }
 }
