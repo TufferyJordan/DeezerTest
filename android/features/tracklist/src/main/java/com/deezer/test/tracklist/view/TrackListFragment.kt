@@ -63,6 +63,10 @@ class TrackListFragment : Fragment(), TrackListView {
     }
 
     override fun displayTrackList(viewModel: TrackListViewModel) {
+        tracklistLoader.visibility = View.GONE
+        trackListErrorText.visibility = View.GONE
+        tracklistRecyclerView.visibility = View.VISIBLE
+
         val header = TrackListHeaderRow()
         val tracks = viewModel.trackList.map {
             TrackRow(it)
@@ -76,7 +80,17 @@ class TrackListFragment : Fragment(), TrackListView {
     }
 
     override fun displayError(message: String) {
-        // TODO
+        tracklistLoader.visibility = View.GONE
+        trackListErrorText.visibility = View.VISIBLE
+        tracklistRecyclerView.visibility = View.GONE
+
+        trackListErrorText.text = message
+    }
+
+    override fun displayLoading() {
+        tracklistLoader.visibility = View.VISIBLE
+        tracklistRecyclerView.visibility = View.GONE
+        trackListErrorText.visibility = View.GONE
     }
 
     companion object {

@@ -12,6 +12,6 @@
         android:id="@+id/githubFragment"
         android:enabled="true"
         android:icon="@drawable/ic_web"
-        android:title="Albums"
+        android:title="Github"
         app:showAsAction="ifRoom"/>
 </menu>

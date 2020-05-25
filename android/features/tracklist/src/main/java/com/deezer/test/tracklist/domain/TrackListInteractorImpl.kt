@@ -14,6 +14,7 @@ class TrackListInteractorImpl(
     private val ioScope = CoroutineScope(Dispatchers.IO + Job())
 
     override fun load(albumId: Int) {
+        presenter.presentLoading()
         ioScope.launch {
             val data = repository.getTrackList(albumId)
             viewScope.launch {

@@ -1,11 +1,11 @@
 package com.deezer.test.tracklist.presenter
 
-import android.content.res.Resources
-import com.deezer.test.design.R
 import com.deezer.test.tracklist.domain.TrackListDto
 import com.deezer.test.tracklist.domain.TrackListPresenter
 import com.deezer.test.tracklist.domain.TrackListViewModel
 import com.deezer.test.tracklist.domain.TrackViewModel
+import java.text.DecimalFormat
+import java.text.NumberFormat
 
 class TrackListPresenterImpl(
     private val view: TrackListView
@@ -14,9 +14,11 @@ class TrackListPresenterImpl(
         view.displayTrackList(
             TrackListViewModel(
             dto.trackList.map {
+                val f: NumberFormat = DecimalFormat("00")
+                val duration = "${it.duration/60}:${f.format(it.duration%60)}"
                 TrackViewModel(
                     it.title,
-                    it.duration
+                    duration
                 )
             }
         )
@@ -25,5 +27,9 @@ class TrackListPresenterImpl(
 
     override fun presentError(exception: Exception) {
         view.displayError(exception.message ?: "An error has occurred")
+    }
+
+    override fun presentLoading() {
+        view.displayLoading()
     }
 }

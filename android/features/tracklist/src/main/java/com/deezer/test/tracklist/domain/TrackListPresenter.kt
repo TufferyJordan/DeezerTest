@@ -5,6 +5,7 @@ import android.text.SpannableString
 interface TrackListPresenter {
     fun presentTrackList(dto: TrackListDto)
     fun presentError(exception: Exception)
+    fun presentLoading()
 }
 
 data class TrackListViewModel(
@@ -13,5 +14,5 @@ data class TrackListViewModel(
 
 data class TrackViewModel(
     val title: String,
-    val duration: Int
+    val duration: String
 )
