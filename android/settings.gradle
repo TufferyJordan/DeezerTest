@@ -6,3 +6,4 @@ include ':design'
 
 include ':features:albumlist'
 include ':apirest'
+include ':features:albumdetail'

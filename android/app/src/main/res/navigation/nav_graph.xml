@@ -7,7 +7,25 @@
 
     <fragment
         android:id="@+id/albumListFragment"
-        android:name="com.deezer.test.albumlist.AlbumListFragment"
-        android:label="Album List Fragment"
-        tools:layout="@layout/fragment_album_list" />
+        android:name="com.deezer.test.albumlist.view.AlbumListFragment"
+        android:label="Album List"
+        tools:layout="@layout/fragment_album_list">
+        <action
+            android:id="@+id/albumListToAlbumDetail"
+            app:destination="@+id/albumDetailFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit">
+            <argument
+                android:name="albumId"
+                app:argType="integer" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/albumDetailFragment"
+        android:name="com.deezer.test.albumdetail.AlbumDetailFragment"
+        android:label="Album Detail"
+        tools:layout="@layout/fragment_album_detail" />
 </navigation>
