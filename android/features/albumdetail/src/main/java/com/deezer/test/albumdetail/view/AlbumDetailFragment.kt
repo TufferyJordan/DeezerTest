@@ -17,6 +17,7 @@ import com.deezer.test.albumdetail.R
 import com.deezer.test.albumdetail.domain.AlbumDetailInteractor
 import com.deezer.test.albumdetail.domain.AlbumDetailViewModel
 import com.deezer.test.albumdetail.presenter.AlbumDetailView
+import com.deezer.test.tracklist.view.TrackListFragment
 import kotlinx.android.synthetic.main.fragment_album_detail.*
 import org.koin.android.ext.android.get
 
@@ -48,6 +49,10 @@ class AlbumDetailFragment : Fragment(), AlbumDetailView {
             get(),
             resources
         ).interactor
+
+        childFragmentManager.beginTransaction()
+            .replace(R.id.albumDetailTracklistFragmentHolder, TrackListFragment.newInstance(albumId))
+            .commitNow()
     }
 
     override fun onStart() {

@@ -41,19 +41,19 @@ dependencies {
     implementation "com.xwray:groupie:$groupie_version"
     implementation "com.xwray:groupie-kotlin-android-extensions:$groupie_version"
     implementation "androidx.cardview:cardview:1.0.0"
-    implementation 'com.eyalbira.loadingdots:loading-dots:1.0.2'
 
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
+    implementation 'com.eyalbira.loadingdots:loading-dots:1.0.2'
 
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
 
     implementation "org.koin:koin-android:$koin_version"
 
     implementation project(":interfaces")
     implementation project(":design")
-    implementation project(":features:tracklist")
 
     testImplementation "junit:junit:$junit_version"
     testImplementation "io.mockk:mockk:$mockk_version"

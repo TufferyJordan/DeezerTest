@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/features/albumdetail" />
             <option value="$PROJECT_DIR$/features/albumlist" />
             <option value="$PROJECT_DIR$/features/github" />
+            <option value="$PROJECT_DIR$/features/tracklist" />
             <option value="$PROJECT_DIR$/interfaces" />
           </set>
         </option>
