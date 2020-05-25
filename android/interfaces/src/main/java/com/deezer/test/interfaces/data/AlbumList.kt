@@ -1,7 +1,6 @@
 package com.deezer.test.interfaces.data
 
-data class AlbumRoot(
+data class AlbumList(
     val data: List<Album>,
-    val total: Int,
-    val artist: Artist
+    val total: Int
 )

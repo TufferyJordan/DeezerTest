@@ -4,14 +4,14 @@ import com.deezer.test.albumlist.domain.AlbumListInteractor
 import com.deezer.test.albumlist.domain.AlbumListInteractorImpl
 import com.deezer.test.albumlist.presenter.AlbumListPresenterImpl
 import com.deezer.test.albumlist.repository.AlbumListRepositoryImpl
-import com.deezer.test.albumlist.view.AlbumListView
-import com.deezer.test.interfaces.AlbumListService
+import com.deezer.test.albumlist.presenter.AlbumListView
+import com.deezer.test.interfaces.AlbumService
 import kotlinx.coroutines.CoroutineScope
 
 class AlbumListDependencies(
     view: AlbumListView,
     scope: CoroutineScope,
-    service: AlbumListService
+    service: AlbumService
 ) {
     val interactor: AlbumListInteractor
 

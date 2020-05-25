@@ -1,7 +1,5 @@
 package com.deezer.test.albumlist.domain
 
-import com.deezer.test.albumlist.presenter.AlbumListPresenter
-import com.deezer.test.albumlist.repository.AlbumListRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

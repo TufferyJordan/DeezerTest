@@ -1,7 +1,9 @@
 package com.deezer.test.albumlist.presenter
 
-import com.deezer.test.albumlist.view.AlbumListView
 import com.deezer.test.albumlist.domain.AlbumListDto
+import com.deezer.test.albumlist.domain.AlbumListPresenter
+import com.deezer.test.albumlist.domain.AlbumListViewModel
+import com.deezer.test.albumlist.domain.AlbumViewModel
 
 class AlbumListPresenterImpl(
     private val view: AlbumListView

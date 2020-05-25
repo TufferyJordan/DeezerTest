@@ -1,6 +1,4 @@
-package com.deezer.test.albumlist.presenter
-
-import com.deezer.test.albumlist.domain.AlbumListDto
+package com.deezer.test.albumlist.domain
 
 interface AlbumListPresenter {
     fun presentAlbumList(dto: AlbumListDto)

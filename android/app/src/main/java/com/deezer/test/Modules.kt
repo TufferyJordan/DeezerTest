@@ -1,7 +1,7 @@
 package com.deezer.test
 
-import com.deezer.test.apirest.RetrofitAlbumListService
-import com.deezer.test.interfaces.AlbumListService
+import com.deezer.test.apirest.RetrofitAlbumService
+import com.deezer.test.interfaces.AlbumService
 import com.deezer.test.interfaces.routing.AlbumListRouter
 import com.deezer.test.routing.AlbumListRouterImpl
 import org.koin.dsl.module
@@ -15,8 +15,8 @@ object Modules {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        val albumListService: AlbumListService =
-            retrofit.create(RetrofitAlbumListService::class.java)
+        val albumListService: AlbumService =
+            retrofit.create(RetrofitAlbumService::class.java)
         single { albumListService }
     }
 
