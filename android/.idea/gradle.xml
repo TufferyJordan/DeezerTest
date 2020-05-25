@@ -10,7 +10,13 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/apirest" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/design" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/albumdetail" />
+            <option value="$PROJECT_DIR$/features/albumlist" />
+            <option value="$PROJECT_DIR$/interfaces" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
