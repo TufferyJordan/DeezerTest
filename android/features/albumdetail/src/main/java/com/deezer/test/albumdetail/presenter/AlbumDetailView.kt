@@ -5,4 +5,5 @@ import com.deezer.test.albumdetail.domain.AlbumDetailViewModel
 
 interface AlbumDetailView {
     fun displayAlbumDetail(viewModel: AlbumDetailViewModel)
+    fun displayError(message: String)
 }

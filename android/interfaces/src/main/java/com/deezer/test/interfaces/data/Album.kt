@@ -6,5 +6,6 @@ data class Album(
     val cover_xl: String,
     val nb_tracks: Int,
     val release_date: String,
+    val explicit_lyrics: Boolean,
     val artist: Artist
 )

@@ -1,7 +1,7 @@
 package com.deezer.test.albumlist.domain
 
 interface AlbumListRepository {
-    suspend fun getAlbumList(): AlbumListData
+    suspend fun getAlbumList(): AlbumListData?
 }
 
 data class AlbumListData(

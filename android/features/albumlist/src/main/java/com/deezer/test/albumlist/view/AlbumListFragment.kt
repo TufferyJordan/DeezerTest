@@ -53,8 +53,16 @@ class AlbumListFragment : Fragment(),
     }
 
     override fun displayAlbumList(viewModel: AlbumListViewModel) {
+        albumListFragmentRecyclerView.visibility = View.VISIBLE
+        albumListFragmentErrorText.visibility = View.GONE
         groupAdapter.clear()
         val items = viewModel.list.map { AlbumItem(it, get()) }
         groupAdapter.addAll(items)
+    }
+
+    override fun displayError(error: String) {
+        albumListFragmentRecyclerView.visibility = View.GONE
+        albumListFragmentErrorText.visibility = View.VISIBLE
+        albumListFragmentErrorText.text = error
     }
 }

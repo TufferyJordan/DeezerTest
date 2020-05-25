@@ -17,16 +17,21 @@ class AlbumDetailInteractorImpl(
         ioScope.launch {
             val data = repository.getAlbumDetail(albumId)
             viewScope.launch {
-                presenter.presentAlbumDetail(
-                    AlbumDetailDto(
-                        data.coverImage,
-                        data.albumName,
-                        data.tracksNumber,
-                        data.artistImage,
-                        data.artistName,
-                        data.albumReleaseDate
+                data?.let {
+                    presenter.presentAlbumDetail(
+                        AlbumDetailDto(
+                            data.coverImage,
+                            data.albumName,
+                            data.tracksNumber,
+                            data.artistImage,
+                            data.artistName,
+                            data.albumReleaseDate,
+                            it.explicit
+                        )
                     )
-                )
+                } ?: run {
+                    presenter.presentError(AlbumDetailException())
+                }
             }
         }
     }

@@ -1,16 +1,17 @@
 package com.deezer.test.albumdetail.domain
 
-import com.deezer.test.albumdetail.domain.AlbumDetailDto
+import android.text.SpannableString
 
 interface AlbumDetailPresenter {
     fun presentAlbumDetail(dto: AlbumDetailDto)
+    fun presentError(exception: Exception)
 }
 
 data class AlbumDetailViewModel(
     val coverImage: String,
     val albumName: String,
-    val tracksNumber: Int,
-    val artistImage: String?,
+    val artistImage: String,
     val artistName: String,
-    val albumReleaseDate: String
+    val albumDetail: String,
+    val explicit: Boolean
 )
