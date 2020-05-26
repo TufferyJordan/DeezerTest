@@ -16,7 +16,8 @@ class TrackListRepositoryImpl(
         TrackListData(service.getTrackList(albumId).data.map {
             TrackData(
                 it.title,
-                it.duration
+                it.duration,
+                it.preview
             )
         })
     } catch (e: IOException) {

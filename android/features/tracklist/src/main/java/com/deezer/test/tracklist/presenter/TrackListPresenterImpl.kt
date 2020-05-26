@@ -18,7 +18,8 @@ class TrackListPresenterImpl(
                 val duration = "${it.duration/60}:${f.format(it.duration%60)}"
                 TrackViewModel(
                     it.title,
-                    duration
+                    duration,
+                    it.previewURL
                 )
             }
         )

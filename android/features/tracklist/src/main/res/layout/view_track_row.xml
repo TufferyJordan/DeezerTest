@@ -2,21 +2,25 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
         android:id="@+id/trackTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         tools:text="John Doe"
         style="@style/TextAppearance.AppCompat.Subhead"
         android:layout_marginLeft="@dimen/huge_gap"
+        android:lines="1"
+        android:ellipsize="end"
         android:layout_marginTop="@dimen/medium_gap"
         android:layout_marginBottom="@dimen/medium_gap"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/trackDuration"/>
 
     <TextView
         android:id="@+id/trackDuration"

@@ -10,7 +10,7 @@ class MainApplication: Application() {
 
         startKoin {
             androidContext(applicationContext)
-            modules(Modules.data, Modules.routing)
+            modules(Modules.data, Modules.routing, Modules.player)
         }
     }
 }

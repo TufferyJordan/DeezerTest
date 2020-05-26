@@ -5,8 +5,11 @@ import com.deezer.test.apirest.AlbumStoreImpl
 import com.deezer.test.apirest.RetrofitAlbumService
 import com.deezer.test.interfaces.AlbumService
 import com.deezer.test.interfaces.AlbumStore
+import com.deezer.test.interfaces.player.PlayerController
 import com.deezer.test.interfaces.routing.AlbumListRouter
 import com.deezer.test.routing.AlbumListRouterImpl
+import com.google.android.exoplayer2.ExoPlayer
+import com.google.android.exoplayer2.SimpleExoPlayer
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -30,5 +33,10 @@ object Modules {
 
     val routing = module {
         single<AlbumListRouter> { AlbumListRouterImpl(get()) }
+    }
+
+    val player = module {
+        single<ExoPlayer> { SimpleExoPlayer.Builder(get()).build() }
+        single<PlayerController> { ExoPlayerController(get(), get()) }
     }
 }

@@ -6,6 +6,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.deezer.test.playerview.PlayerFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +29,10 @@ class MainActivity : AppCompatActivity() {
         activityMainBottomNavigationView.setupWithNavController(navController)
 
         navigationBroadcastReceiver = NavigationBroadcastReceiver(navController, this)
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.activityMainPlayerFragment, PlayerFragment.newInstance())
+            .commitNow()
     }
 
     override fun onStart() {
