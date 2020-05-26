@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    app:cardCornerRadius="0dp"
-    android:layout_margin="@dimen/little_gap">
+    android:layout_margin="@dimen/little_gap"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -45,16 +46,16 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/albumViewTitleText"
+            style="@style/TextAppearance.AppCompat.Subhead"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center"
-            style="@style/TextAppearance.AppCompat.Subhead"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="@+id/albumViewCover"
             app:layout_constraintLeft_toLeftOf="@id/albumViewCover"
             app:layout_constraintRight_toRightOf="@id/albumViewCover"
             app:layout_constraintTop_toBottomOf="@+id/albumViewCoverGuideline"
-            tools:text="Album Title"/>
+            tools:text="Album Title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

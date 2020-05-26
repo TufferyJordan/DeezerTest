@@ -69,7 +69,7 @@ class TrackListFragment : Fragment(), TrackListView {
 
         val header = TrackListHeaderRow()
         val tracks = viewModel.trackList.map {
-            TrackRow(it)
+            TrackRow(it, get())
         }
         val items = arrayListOf<Item>().apply {
             add(header)

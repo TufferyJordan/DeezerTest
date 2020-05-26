@@ -12,5 +12,6 @@ data class TrackListData(
 
 data class TrackData(
     val title: String,
-    val duration: Int
+    val duration: Int,
+    val previewURL: String
 )

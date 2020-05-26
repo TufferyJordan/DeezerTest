@@ -24,7 +24,8 @@ class TrackListInteractorImpl(
                             data.trackList.map {
                                 TrackDto(
                                     it.title,
-                                    it.duration
+                                    it.duration,
+                                    it.previewURL
                                 )
                             }
                         )

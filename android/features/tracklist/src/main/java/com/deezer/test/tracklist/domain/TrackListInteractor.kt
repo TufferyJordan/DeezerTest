@@ -12,7 +12,8 @@ data class TrackListDto(
 
 data class TrackDto(
     val title: String,
-    val duration: Int
+    val duration: Int,
+    val previewURL: String
 )
 
 class TrackListException: Exception("An error has occurred during the tracklist request")
