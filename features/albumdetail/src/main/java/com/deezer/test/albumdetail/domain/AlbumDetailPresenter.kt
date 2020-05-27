@@ -1,7 +1,5 @@
 package com.deezer.test.albumdetail.domain
 
-import android.text.SpannableString
-
 interface AlbumDetailPresenter {
     fun presentAlbumDetail(dto: AlbumDetailDto)
     fun presentError(exception: Exception)

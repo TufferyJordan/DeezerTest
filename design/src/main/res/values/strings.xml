@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">Deezer test</string>
+
+    <string name="bottom_bar_title_albums">Albums</string>
+    <string name="bottom_bar_title_github">Github</string>
+
+    <string name="page_title_album_list">Album List</string>
+    <string name="page_title_album_detail">Album Detail</string>
+    <string name="page_title_github">Project Page</string>
+
+    <string name="tracklist_header_row_title">Title</string>
+    <string name="tracklist_header_row_duration">Duration</string>
+
     <plurals name="album_detail_tracks_data">
         <item quantity="one">%s track, %s</item>
         <item quantity="other">%s tracks, %s</item>
