@@ -1,0 +1,12 @@
+rootProject.name='Deezer test'
+
+include ':app'
+include ':interfaces'
+include ':design'
+
+include ':features:albumlist'
+include ':apirest'
+include ':features:albumdetail'
+include ':features:github'
+include ':features:tracklist'
+include ':features:playerview'

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Space
+        android:id="@+id/albumDetailSpace"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/albumDetailAlbumCoverImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:elevation="1dp"
+        android:layout_marginLeft="@dimen/large_gap"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/albumDetailSpace"
+        tools:src="@drawable/ic_album_placeholder" />
+
+    <ImageView
+        android:id="@+id/albumDetailArtistImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:elevation="1dp"
+        android:layout_marginLeft="@dimen/medium_gap"
+        app:layout_constraintBottom_toBottomOf="@id/albumDetailAlbumCoverImage"
+        app:layout_constraintLeft_toRightOf="@id/albumDetailAlbumCoverImage"
+        tools:src="@drawable/ic_album_placeholder" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/albumDetailAlbumNameText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/medium_gap"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:textStyle="bold"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        tools:text="The who"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="@+id/albumDetailAlbumCoverImage"
+        app:layout_constraintBottom_toTopOf="@+id/albumDetailArtistImage"
+        app:layout_constraintLeft_toRightOf="@+id/albumDetailAlbumCoverImage"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/albumDetailAlbumDetailsText"
+        style="@style/TextAppearance.AppCompat.Subhead"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/medium_gap"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="@+id/albumDetailArtistImage"
+        app:layout_constraintLeft_toRightOf="@+id/albumDetailArtistImage"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="16 tracks, 16/02/2020" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/albumDetailArtistNameText"
+        style="@style/TextAppearance.AppCompat.Subhead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/tiny_gap"
+        android:layout_marginLeft="@dimen/medium_gap"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/albumDetailAlbumDetailsText"
+        app:layout_constraintTop_toTopOf="@+id/albumDetailArtistImage"
+        app:layout_constraintLeft_toRightOf="@+id/albumDetailArtistImage"
+        tools:text="John Doe" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/albumDetailHeaderGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="albumDetailAlbumCoverImage,albumDetailAlbumDetailsText, albumDetailAlbumNameText, albumDetailArtistImage, albumDetailArtistNameText"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/albumDetailErrorText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <FrameLayout
+        android:id="@+id/albumDetailTracklistFragmentHolder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/huge_gap"
+        app:layout_constraintTop_toBottomOf="@+id/albumDetailAlbumCoverImage"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

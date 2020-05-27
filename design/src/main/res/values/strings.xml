@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Deezer test</string>
+    <plurals name="album_detail_tracks_data">
+        <item quantity="one">%s track, %s</item>
+        <item quantity="other">%s tracks, %s</item>
+    </plurals>
+</resources>
