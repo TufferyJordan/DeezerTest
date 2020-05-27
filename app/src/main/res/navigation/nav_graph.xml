@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/albumListFragment"
         android:name="com.deezer.test.albumlist.view.AlbumListFragment"
-        android:label="Album List"
+        android:label="@string/page_title_album_list"
         tools:layout="@layout/fragment_album_list">
         <action
             android:id="@+id/albumListToAlbumDetail"
@@ -26,13 +26,13 @@
     <fragment
         android:id="@+id/albumDetailFragment"
         android:name="com.deezer.test.albumdetail.view.AlbumDetailFragment"
-        android:label="Album Detail"
+        android:label="@string/page_title_album_detail"
         tools:layout="@layout/fragment_album_detail" />
 
     <fragment
         android:id="@+id/githubFragment"
         android:name="com.deezer.test.github.GithubFragment"
-        android:label="Project Page"
+        android:label="@string/page_title_github"
         tools:layout="@layout/fragment_github" />
 
 </navigation>

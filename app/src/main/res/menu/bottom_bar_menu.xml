@@ -5,13 +5,13 @@
         android:id="@+id/albumListFragment"
         android:enabled="true"
         android:icon="@drawable/ic_album_white"
-        android:title="Albums"
+        android:title="@string/bottom_bar_title_albums"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/githubFragment"
         android:enabled="true"
         android:icon="@drawable/ic_web"
-        android:title="Github"
+        android:title="@string/bottom_bar_title_github"
         app:showAsAction="ifRoom"/>
 </menu>
