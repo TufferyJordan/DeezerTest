@@ -4,40 +4,36 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import com.deezer.test.albumlist.AlbumListDependencies
 import com.deezer.test.albumlist.R
-import com.deezer.test.albumlist.domain.AlbumListInteractor
-import com.deezer.test.albumlist.presenter.AlbumListView
-import com.deezer.test.albumlist.domain.AlbumListViewModel
+import com.deezer.test.albumlist.databinding.FragmentAlbumListBinding
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import kotlinx.android.synthetic.main.fragment_album_list.*
-import org.koin.android.ext.android.get
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class AlbumListFragment : Fragment(),
-    AlbumListView {
+class AlbumListFragment : Fragment() {
 
-    private lateinit var interactor: AlbumListInteractor
+    private val albumListViewModel: AlbumListViewModel by viewModel()
     private val groupAdapter = GroupAdapter<GroupieViewHolder>()
+
+    private lateinit var binding: FragmentAlbumListBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_album_list, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_album_list, container, false)
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.viewModel = albumListViewModel
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        interactor = AlbumListDependencies(
-            this,
-            viewLifecycleOwner.lifecycleScope,
-            get()
-        ).interactor
 
         val lm = GridLayoutManager(requireContext(), 2)
 
@@ -49,28 +45,6 @@ class AlbumListFragment : Fragment(),
 
     override fun onStart() {
         super.onStart()
-        interactor.load()
-    }
-
-    override fun displayAlbumList(viewModel: AlbumListViewModel) {
-        albumListFragmentRecyclerView.visibility = View.VISIBLE
-        albumListFragmentLoader.visibility = View.GONE
-        albumListFragmentErrorText.visibility = View.GONE
-        groupAdapter.clear()
-        val items = viewModel.list.map { AlbumItem(it, get()) }
-        groupAdapter.addAll(items)
-    }
-
-    override fun displayError(error: String) {
-        albumListFragmentRecyclerView.visibility = View.GONE
-        albumListFragmentLoader.visibility = View.GONE
-        albumListFragmentErrorText.visibility = View.VISIBLE
-        albumListFragmentErrorText.text = error
-    }
-
-    override fun displayLoading() {
-        albumListFragmentLoader.visibility = View.VISIBLE
-        albumListFragmentRecyclerView.visibility = View.GONE
-        albumListFragmentErrorText.visibility = View.GONE
+        albumListViewModel.load()
     }
 }

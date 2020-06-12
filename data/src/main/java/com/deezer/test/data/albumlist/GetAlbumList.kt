@@ -1,15 +1,14 @@
-package com.deezer.test.albumlist.repository
+package com.deezer.test.data.albumlist
 
-import com.deezer.test.albumlist.domain.AlbumData
-import com.deezer.test.albumlist.domain.AlbumListData
-import com.deezer.test.albumlist.domain.AlbumListRepository
+import com.deezer.test.data.model.AlbumData
+import com.deezer.test.data.model.AlbumListData
 import com.deezer.test.interfaces.AlbumStore
 import java.io.IOException
 
-class AlbumListRepositoryImpl(
+class GetAlbumList(
     private val store: AlbumStore
-) : AlbumListRepository {
-    override suspend fun getAlbumList(): AlbumListData? = try {
+) {
+    suspend fun getAlbumList(): AlbumListData? = try {
         val data = store.getAlbumList()?.data?.map {
             AlbumData(
                 it.id,
