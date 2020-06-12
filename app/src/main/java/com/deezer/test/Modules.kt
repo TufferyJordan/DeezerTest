@@ -1,5 +1,6 @@
 package com.deezer.test
 
+import android.content.Context
 import android.os.Build
 import com.deezer.test.apirest.AlbumStoreImpl
 import com.deezer.test.apirest.RetrofitAlbumService
@@ -10,20 +11,31 @@ import com.deezer.test.interfaces.routing.AlbumListRouter
 import com.deezer.test.routing.AlbumListRouterImpl
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.SimpleExoPlayer
+import okhttp3.Cache
+import okhttp3.OkHttpClient
 import org.koin.dsl.module
+import org.koin.java.KoinJavaComponent.get
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object Modules {
     val data = module {
-        val baseUrl = if(Build.VERSION.SDK_INT <= 19) {
+        val baseUrl = if (Build.VERSION.SDK_INT <= 19) {
             "http://api.deezer.com/2.0/"
         } else {
             "https://api.deezer.com/2.0/"
         }
 
+        val cacheSize = 5L * 1024L * 1024L
+        val cache = Cache(get(Context::class.java).cacheDir, cacheSize)
+
+        val okHttpClient = OkHttpClient.Builder()
+            .cache(cache)
+            .build()
+
         val retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)
+            .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
