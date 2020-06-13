@@ -1,12 +1,11 @@
 package com.deezer.test.albumlist.view
 
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.deezer.test.data.albumlist.GetAlbumList
+import com.deezer.test.data.albumlist.GetAlbumListRepository
 import com.deezer.test.data.model.AlbumListData
 import com.deezer.test.interfaces.routing.AlbumListRouter
 import com.xwray.groupie.kotlinandroidextensions.Item
@@ -16,7 +15,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class AlbumListViewModel(
-    private val repository: GetAlbumList,
+    private val repository: GetAlbumListRepository,
     private val router: AlbumListRouter
 ) : ViewModel() {
 

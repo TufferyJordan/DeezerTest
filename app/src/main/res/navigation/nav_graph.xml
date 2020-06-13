@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/albumDetailFragment"
-        android:name="com.deezer.test.albumdetail.view.AlbumDetailFragment"
+        android:name="com.deezer.test.albumdetail.AlbumDetailFragment"
         android:label="@string/page_title_album_detail"
         tools:layout="@layout/fragment_album_detail" />
 

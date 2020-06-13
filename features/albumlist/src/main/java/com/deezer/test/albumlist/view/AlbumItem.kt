@@ -19,11 +19,11 @@ class AlbumItem(
                 router.navigate(dataItem.id)
             }
             Glide.with(this)
-                .load(dataItem.cover)
+                .load(dataItem.coverImage)
                 .placeholder(R.drawable.ic_album_placeholder)
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(albumViewCover)
-            albumViewTitleText.text = dataItem.title
+            albumViewTitleText.text = dataItem.albumName
         }
     }
 

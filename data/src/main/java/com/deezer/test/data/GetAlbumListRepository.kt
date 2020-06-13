@@ -1,16 +1,17 @@
-package com.deezer.test.albumdetail.repository
+package com.deezer.test.data.albumlist
 
-import com.deezer.test.albumdetail.domain.AlbumDetailData
-import com.deezer.test.albumdetail.domain.AlbumDetailRepository
+import com.deezer.test.data.model.AlbumData
+import com.deezer.test.data.model.AlbumListData
 import com.deezer.test.interfaces.AlbumStore
 import java.io.IOException
 
-class AlbumDetailRepositoryImpl(
+class GetAlbumListRepository(
     private val store: AlbumStore
-) : AlbumDetailRepository {
-    override suspend fun getAlbumDetail(albumId: Int): AlbumDetailData? = try {
-        store.getAlbum(albumId)?.let {
-            AlbumDetailData(
+) {
+    suspend fun getAlbumList(): AlbumListData? = try {
+        val data = store.getAlbumList()?.data?.map {
+            AlbumData(
+                it.id,
                 it.cover_xl,
                 it.title,
                 it.nb_tracks,
@@ -19,6 +20,9 @@ class AlbumDetailRepositoryImpl(
                 it.release_date,
                 it.explicit_lyrics
             )
+        }
+        data?.let {
+            AlbumListData(it)
         }
     } catch (e: IOException) {
         null
