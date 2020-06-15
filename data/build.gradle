@@ -1,7 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.ext.compileSDKVersion
@@ -24,47 +23,26 @@ android {
         }
     }
 
+
     android {
         compileOptions {
             sourceCompatibility 1.8
             targetCompatibility 1.8
         }
-
-        dataBinding {
-            enabled = true
-        }
-
     }
 
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "androidx.appcompat:appcompat:$app_compat_version"
     implementation "androidx.core:core-ktx:$android_core_ktx_version"
-    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
-    implementation "androidx.recyclerview:recyclerview:$recycler_view_version"
-    implementation "com.xwray:groupie:$groupie_version"
-    implementation "com.xwray:groupie-kotlin-android-extensions:$groupie_version"
-
-    implementation "com.eyalbira.loadingdots:loading-dots:$dot_loader_version"
 
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
 
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
-
     implementation "org.koin:koin-android:$koin_version"
-    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
 
     implementation project(":interfaces")
-    implementation project(":design")
-    implementation project(":data")
 
     testImplementation "junit:junit:$junit_version"
     testImplementation "io.mockk:mockk:$mockk_version"
-    testImplementation "android.arch.core:core-testing:$architecture_testing_version"
-    testImplementation "com.google.truth:truth:$truth_version"
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutine_version"
 }

@@ -9,15 +9,12 @@ import com.deezer.test.interfaces.player.PlayerController
 import com.deezer.test.interfaces.player.PlayerListener
 import kotlinx.android.synthetic.main.fragment_player.*
 import org.koin.android.ext.android.get
+import org.koin.android.ext.android.inject
 
 class PlayerFragment: Fragment(), PlayerListener {
 
-    private lateinit var playerController: PlayerController
+    private val playerController: PlayerController by inject()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        playerController = get()
-    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
