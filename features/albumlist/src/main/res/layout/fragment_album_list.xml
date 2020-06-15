@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.deezer.test.albumlist.view.AlbumListViewModel" />
+            type="com.deezer.test.albumlist.AlbumListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

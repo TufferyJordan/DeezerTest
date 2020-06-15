@@ -73,34 +73,6 @@ class AlbumDetailViewModel(
             data.albumReleaseDate
         )
         _albumDetailsLiveData.postValue(detailsAlbum)
-
-
-//        val drawable =
-//            ContextCompat.getDrawable(requireContext(), R.drawable.ic_parental_advisory_label)
-//        drawable?.let {
-//            val sizeFactor = drawable.intrinsicWidth.toFloat() / drawable.intrinsicHeight.toFloat()
-//            drawable.setBounds(
-//                0,
-//                0,
-//                (albumDetailAlbumDetailsText.lineHeight * sizeFactor).toInt(),
-//                albumDetailAlbumDetailsText.lineHeight
-//            )
-//            val spannableString = SpannableStringBuilder().apply {
-//                if (viewModel.explicit) {
-//                    append("  ")
-//                    setSpan(
-//                        ImageSpan(
-//                            drawable,
-//                            com.deezer.test.design.R.drawable.ic_parental_advisory_label
-//                        ),
-//                        0,
-//                        1,
-//                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-//                    )
-//                }
-//                append(viewModel.albumDetail)
-//            }
-//        }
     }
 
     private fun displayError() {

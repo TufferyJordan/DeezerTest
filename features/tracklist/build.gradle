@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.ext.compileSDKVersion
@@ -28,6 +29,11 @@ android {
             sourceCompatibility 1.8
             targetCompatibility 1.8
         }
+
+        dataBinding {
+            enabled = true
+        }
+
     }
 
 }
@@ -44,13 +50,21 @@ dependencies {
     implementation "com.eyalbira.loadingdots:loading-dots:$dot_loader_version"
 
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
+
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
     implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
 
     implementation project(":interfaces")
     implementation project(":design")
+    implementation project(":data")
 
     testImplementation "junit:junit:$junit_version"
     testImplementation "io.mockk:mockk:$mockk_version"
+    testImplementation "android.arch.core:core-testing:$architecture_testing_version"
+    testImplementation "com.google.truth:truth:$truth_version"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutine_version"
 }

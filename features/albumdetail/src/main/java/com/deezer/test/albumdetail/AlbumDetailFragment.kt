@@ -7,8 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.deezer.test.albumdetail.databinding.FragmentAlbumDetailBinding
-import com.deezer.test.tracklist.view.TrackListFragment
-import kotlinx.android.synthetic.main.fragment_album_detail.*
+import com.deezer.test.tracklist.TrackListFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AlbumDetailFragment : Fragment() {

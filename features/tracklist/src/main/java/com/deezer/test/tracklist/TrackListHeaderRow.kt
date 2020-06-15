@@ -1,4 +1,4 @@
-package com.deezer.test.tracklist.view
+package com.deezer.test.tracklist
 
 import com.deezer.test.tracklist.R
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder

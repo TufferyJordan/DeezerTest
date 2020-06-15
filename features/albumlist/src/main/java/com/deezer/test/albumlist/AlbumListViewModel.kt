@@ -1,4 +1,4 @@
-package com.deezer.test.albumlist.view
+package com.deezer.test.albumlist
 
 import android.view.View
 import androidx.lifecycle.LiveData
@@ -21,26 +21,25 @@ class AlbumListViewModel(
 
     private val ioScope = CoroutineScope(Dispatchers.IO + Job())
 
-    private val _albumListLiveData: MutableLiveData<List<Item>> = MutableLiveData()
+    private val _albumListLiveData: MutableLiveData<List<Item>> = MutableLiveData(emptyList())
     val albumListLiveData: LiveData<List<Item>> = _albumListLiveData
 
-    private val _errorTextLiveData: MutableLiveData<String> = MutableLiveData()
+    private val _errorTextLiveData: MutableLiveData<String> = MutableLiveData("")
     val errorTextLiveData: LiveData<String> = _errorTextLiveData
 
-    private val _recyclerViewVisibilityLiveData: MutableLiveData<Int> = MutableLiveData()
+    private val _recyclerViewVisibilityLiveData: MutableLiveData<Int> = MutableLiveData(View.GONE)
     val recyclerViewVisibilityLiveData: LiveData<Int> = _recyclerViewVisibilityLiveData
 
-    private val _dotViewVisibilityLiveData: MutableLiveData<Int> = MutableLiveData()
+    private val _dotViewVisibilityLiveData: MutableLiveData<Int> = MutableLiveData(View.GONE)
     val dotViewVisibilityLiveData: LiveData<Int> = _dotViewVisibilityLiveData
 
-    private val _errorTextVisibilityLiveData: MutableLiveData<Int> = MutableLiveData()
+    private val _errorTextVisibilityLiveData: MutableLiveData<Int> = MutableLiveData(View.GONE)
     val errorTextVisibilityLiveData: LiveData<Int> = _errorTextVisibilityLiveData
 
     fun load() {
         displayLoading()
         ioScope.launch {
             val data = repository.getAlbumList()
-            print(data)
             viewModelScope.launch {
                 data?.let {
                     displayAlbumList(data)
@@ -55,7 +54,12 @@ class AlbumListViewModel(
         _dotViewVisibilityLiveData.postValue(View.GONE)
         _errorTextVisibilityLiveData.postValue(View.GONE)
         _recyclerViewVisibilityLiveData.postValue(View.VISIBLE)
-        _albumListLiveData.postValue(data.list.map { AlbumItem(it, router) })
+        _albumListLiveData.postValue(data.list.map {
+            AlbumItem(
+                it,
+                router
+            )
+        })
     }
 
     private fun displayError(error: String) {

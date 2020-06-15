@@ -1,4 +1,4 @@
-package com.deezer.test.albumlist.view
+package com.deezer.test.albumlist
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import com.deezer.test.albumlist.R
 import com.deezer.test.albumlist.databinding.FragmentAlbumListBinding
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder

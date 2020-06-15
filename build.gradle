@@ -40,6 +40,8 @@ buildscript {
         mockk_version = '1.10.0'
         android_junit_version = '1.1.1'
         espresso_version = '3.2.0'
+        architecture_testing_version = '1.1.1'
+        truth_version = '1.0.1'
     }
 
     repositories {

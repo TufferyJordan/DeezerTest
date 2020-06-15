@@ -1,5 +1,6 @@
-package com.deezer.test.albumlist.repository
+package com.deezer.test.data
 
+import com.deezer.test.data.albumlist.GetAlbumListRepository
 import com.deezer.test.interfaces.AlbumStore
 import com.deezer.test.interfaces.data.Album
 import com.deezer.test.interfaces.data.AlbumList
@@ -12,15 +13,15 @@ import org.junit.Before
 import org.junit.Test
 import java.io.IOException
 
-class AlbumListRepositoryImplTest {
+class GetAlbumListRepositoryTest {
 
-    private lateinit var repository: AlbumListRepositoryImpl
+    private lateinit var repository: GetAlbumListRepository
     private lateinit var store: AlbumStore
 
     @Before
     fun setUp() {
         store = mockk()
-        repository = AlbumListRepositoryImpl(store)
+        repository = GetAlbumListRepository(store)
     }
 
     @Test
@@ -57,8 +58,13 @@ class AlbumListRepositoryImplTest {
             assert(data.list.size == 1)
             data.list[0].let {
                 assert(it.id == 1)
-                assert(it.cover == "URL")
-                assert(it.title == "John Doe's Album")
+                assert(it.coverImage == "URL")
+                assert(it.explicit)
+                assert(it.albumReleaseDate == "date")
+                assert(it.artistImage == "URL2")
+                assert(it.artistName == "John Doe")
+                assert(it.tracksNumber == 1)
+                assert(it.albumName == "John Doe's Album")
             }
 
         }

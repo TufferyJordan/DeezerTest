@@ -71,4 +71,5 @@ dependencies {
     implementation project(":features:albumdetail")
     implementation project(":features:github")
     implementation project(":features:playerview")
+    implementation project(":features:tracklist")
 }

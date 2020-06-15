@@ -3,16 +3,18 @@ package com.deezer.test
 import android.content.Context
 import android.os.Build
 import com.deezer.test.albumdetail.AlbumDetailViewModel
-import com.deezer.test.albumlist.view.AlbumListViewModel
+import com.deezer.test.albumlist.AlbumListViewModel
 import com.deezer.test.apirest.AlbumStoreImpl
 import com.deezer.test.apirest.RetrofitAlbumService
 import com.deezer.test.data.GetAlbumRepository
+import com.deezer.test.data.GetTrackListRepository
 import com.deezer.test.data.albumlist.GetAlbumListRepository
 import com.deezer.test.interfaces.AlbumService
 import com.deezer.test.interfaces.AlbumStore
 import com.deezer.test.interfaces.player.PlayerController
 import com.deezer.test.interfaces.routing.AlbumListRouter
 import com.deezer.test.routing.AlbumListRouterImpl
+import com.deezer.test.tracklist.TrackListViewModel
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.SimpleExoPlayer
 import okhttp3.Cache
@@ -56,11 +58,13 @@ object Modules {
     val repositories = module {
         single { GetAlbumListRepository(get()) }
         single { GetAlbumRepository(get()) }
+        single { GetTrackListRepository(get()) }
     }
 
     val viewModels = module {
         viewModel { AlbumListViewModel(get(), get()) }
         viewModel { AlbumDetailViewModel(get(), get<Context>().resources) }
+        viewModel { TrackListViewModel(get(), get()) }
     }
 
     val player = module {
