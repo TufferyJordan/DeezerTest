@@ -5,8 +5,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import com.deezer.test.albumlist.view.AlbumListFragmentDirections
 import androidx.navigation.NavController
+import com.deezer.test.albumlist.AlbumListFragmentDirections
 import com.deezer.test.routing.AlbumListRouterImpl
 
 class NavigationBroadcastReceiver(
